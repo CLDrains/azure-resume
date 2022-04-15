@@ -9,9 +9,10 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
+
 namespace Company.Function
 {
-    public static class NewBaseType
+    public static class GetResumeCounter
     {
         [FunctionName("GetResumeCounter")]
         public static HttpResponseMessage Run(
@@ -25,6 +26,7 @@ namespace Company.Function
 
             updatedCounter = counter;
             updatedCounter.Count += 1;
+
             var jsonToReturn = JsonConvert.SerializeObject(counter);
 
             return new HttpResponseMessage(System.Net.HttpStatusCode.OK)
